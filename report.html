@@ -1,0 +1,38 @@
+
+<html>
+	<head>
+		<title>Handlebars JavaScript </title>
+        
+        <script src="js/handlebars-v4.0.5.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        
+        <script> 
+			$(document).ready(function ()
+			{		
+				var template = $('#basic-template1').html();
+				var templateScript = Handlebars.compile(template);
+				var context = { 
+					title1: "London, GB light rain",
+					title: "6°С temperature from 5 to 7.2 °С, wind 8.2 m/s. clouds 100 %, 974 hpa",
+					body: "Geo coords [51.5085, -0.1258]" 
+				}
+				// Pass Data to template script.
+				var html = templateScript(context);
+				// Insert the HTML code into the page
+				$(document.body).append(html);		
+        });			
+        </script>
+    </head>
+    <body>
+	<script id="basic-template1" type="text/x-handlebars-template">
+		<div>
+		 <p><span style="font-size:12pt; font-family:Trebuchet MS; color:orangered"><b><u>London, GB</b></u></span>
+		    <span style="font-size:12pt; font-family:Trebuchet MS; color:black"><b><i>light rain</i></b> </span></p>
+		 <p><span style="font-size:11pt; font-family:Trebuchet MS; background-color:black; color:white"><b>6°С</b></span>
+	        <span style="font-size:11pt; font-family:Trebuchet MS; color:black">temperature from 5 to 7.2 °С, wind 8.2 m/s. clouds 100 %, 974 hpa</span></p>
+		 <p><span style="font-size:11pt; font-family:Trebuchet MS; color:black">Geo coords</span>
+            <span style="font-size:11pt; font-family:Trebuchet MS; color:orangered"><u>[51.5085, -0.1258]</u> </span></p>
+		</div>
+	</body>
+	</script>   
+</html>
